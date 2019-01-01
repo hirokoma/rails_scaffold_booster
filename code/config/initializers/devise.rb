@@ -10,7 +10,7 @@ Devise.setup do |config|
   # by default. You can change it below and use your own secret key.
   # config.secret_key = 'f6957ac2872f293f37b32e2d218bf2af402f84de16e06ceb7fdf4658a35f88df5406109ea23c74602f30a66dcdf051d1d84954a36e9c410434581e514847d4d9'
   
-  config.omniauth :twitter, ENV['RAILS_APP_KARAMI_TWITTER_ID'], ENV['RAILS_APP_KARAMI_TWITTER_SECRET']
+  config.omniauth :twitter, ENV['RAILS_APP_@@@_TWITTER_ID'], ENV['RAILS_APP_@@@_TWITTER_SECRET']
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
