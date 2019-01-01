@@ -49,7 +49,7 @@ This application is a Web service that enables a user to post a review using Twi
 
 In order to sign up using Email, you need a Google account that requires 2-step verification.
 Open [Google Account](https://myaccount.google.com/security) and enable 2-step verification.
-Then, issue a app password.
+Then, issue an app password.
 
 
 ### 3. Configure on shell script.

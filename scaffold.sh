@@ -1,13 +1,17 @@
 # User Config
-APP_NAME_LOWER_CASE=anime_transcript
-APP_NAME_UPPER_CASE=ANIME_TRANSCRIPT
-APP_NAME_TO_DISPLAY=アニメで英語
-PROJECT_DIRECTORY=/Users/rooster/01_Projects/anime_transcript
-TWITTER_ID=XXXXXXXXXXXXXXXXXX
-TWITTER_SECRET=XXXXXXXXXXXXXXXXXX
-GMAIL_USER=your_gmail_acount@gmail.com
-GMAIL_PASSWORD=your_gmail_password@gmail.com
-FROM_ARRRESS=your_own_email@example.com
+APP_NAME_LOWER_CASE=my_app # Arbitrary project name
+APP_NAME_UPPER_CASE=MY_APP # Arbitrary project name
+APP_NAME_TO_DISPLAY="My App!!" # Used for the sender name of the email and the title of the Web page.
+PROJECT_DIRECTORY=/path/to/your/project/directory # Your Rails application will be created here.
+TWITTER_ID=XXXXXXXXXXXXXXXXXX # ID you got in step 1.
+TWITTER_SECRET=XXXXXXXXXXXXXXXXXX # Secret you got in step 1.
+GMAIL_USER=your_gmail_acount@gmail.com # Gmail account you used in step 2.
+GMAIL_PASSWORD=XXXXXXXXXXXXXXXXX # Password you got in step 2.
+FROM_ARRRESS=your_own_email@example.com # Used as the sender email
+
+
+
+
 
 # Do not change the following setting.
 SOURCE_PATH=https://raw.githubusercontent.com/hirokoma/rails_scaffold_booster/master/code
