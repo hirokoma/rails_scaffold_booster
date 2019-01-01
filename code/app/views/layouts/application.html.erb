@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for?(:title) ? yield(:title) + ' - @@@' : "@@@" %></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="turbolinks-cache-control" content="no-cache">
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container py-0">
+
+        <div class="navbar-header">
+          <a class="nav navbar-nav" href="/"><img src="/dummy_logo.png" class="mt-1" style="height: 40px;"></a>
+
+          <% if true %>
+            <!-- For debug -->
+            <p class="fw-2 fc-red nav navbar-nav visible-xs">XS</p>
+            <p class="fw-2 fc-green nav navbar-nav visible-sm">SM</p>
+            <p class="fw-2 fc-yellow nav navbar-nav visible-md">MD</p>
+            <p class="fw-2 fc-cyan nav navbar-nav visible-lg">LG</p>
+          <% end %>
+        </div>
+
+        <div class="navbar-nav navbar-right" style="line-height: 38px;">
+
+          <% if user_signed_in? %>
+            <%= link_to current_user.nickname, user_path(current_user), class: 'btn btn-sm btn-danger' %>
+            <%= link_to 'プロフィール変更', edit_user_registration_path, class: 'btn btn-sm btn-danger' %>
+            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'btn btn-sm btn-danger' %>
+          <% else %>
+            <%= link_to 'サインアップ', new_user_registration_path, class: 'btn btn-sm btn-danger' %>
+            <%= link_to 'ログイン', new_user_session_path, class: 'btn btn-sm btn-danger' %>
+          <% end %>
+
+        </div>
+
+      </div>
+      <hr class="mt-1 mr-0 mb-0 ml-0">
+    </nav>
+
+    <div>
+      <% flash.each do |key, value| %>
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12">
+              <div id="flash" class="flexible-fixed my-4 alert alert-<%= key %>">
+                <div class="flexible fs-m fc-2">
+                  <%= value %>
+                </div>
+                <div class="fixed" style="width: 10px;">
+                  <span class="rm-alert"><i class="fa fa-lg fa-fw fa-times" style="cursor: pointer;"></i></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <%= yield %>
+
+    <div class="footer well-cyan mt-5 p-5" style="border-radius: 0px !important; position: relative; top: auto; bottom: 0;">
+      <span class="fw-2 fc-8 fs-5">フッター</span>
+    </div>
+
+    <%= render 'utils/debug' %>
+
+    <script type="text/javascript">
+      $(function() {
+        $('span.rm-alert').click(function() {
+          $('#flash').remove();
+        });
+      });
+    </script>
+
+  </body>
+</html>
+

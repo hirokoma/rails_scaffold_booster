@@ -1,0 +1,741 @@
+/*
+ *= require_self
+ *= require_tree .
+ *= require flatly/loader
+ *= require flatly/bootswatch
+ *= require font-awesome
+*/
+
+/* sticky footer */
+/* https://coliss.com/articles/build-websites/operation/css/css-simple-sticky-footer-by-melissa.html */
+html {
+  min-height: 100% !important;
+  position: relative !important;
+}
+
+.footer {
+  bottom: 0 !important;
+  width: 100% !important;;
+  height: 10em !important;;
+  position: absolute !important;
+}
+
+/* bootstrapのナビゲーションバーの高さ分、画面上部にマージンを設ける */
+/* 横幅の最小値を定義する iPhone3Gの320pxにあわせる */
+body {
+  margin-bottom: 10em !important;
+  padding-top: 54px !important;;
+  min-width: 320px !important;;
+}
+
+/* デフォルトでpにマージンがついてるのでそれを削除 */
+p {
+  margin: 0 !important;
+}
+
+/* フォームの影を削除*/
+/* セレクトボックスに罫線を追加 */
+input {
+  box-shadow: none !important;
+}
+textarea {
+  box-shadow: none !important;
+}
+select {
+  border: solid 1px #ccc;
+}
+
+/* チェックボックと隣の文字列が近すぎるため少し離す */
+.form-check-input {
+  margin-right: 3px !important;
+}
+
+/* バリデーションに引っかかったときにフォームを赤く表示 */
+.form-group-invalid .form-control {
+  border: 2px solid pink;
+}
+.form-group-invalid .form-control:focus { 
+  border: 2px solid red;
+}
+.invalid-feedback {
+  color: red;
+}
+
+/* スマートフォンで表示したときに左右の余白を削除する
+https://qiita.com/komakomako/items/ff1e63daa4877ac83873
+*/
+@media (max-width: 480px) {
+  .container  {
+    padding: 4px !important; /* 好みに応じて余白サイズを指定 */
+    overflow-x: hidden !important; /* これがないと x軸方向に謎の余白が生じてしまう */
+  }
+  .navbar-header {
+    margin: 0px  !important;
+  }
+}
+
+/* ナビゲーションバーの右側のメニューのマージン調整 */
+.navbar-nav.navbar-right:last-child{
+  margin-right: 0px !important;
+}
+
+/* ファイル選択ボタンをスタイリング */
+.file input{
+  display:none !important;
+}
+.file img{
+  cursor:pointer;
+}
+.file button{
+  cursor:pointer;
+}
+
+/* display:noneを「hidden」で表現; */
+.hidden {
+  display:none !important;
+}
+
+/* wellの陰を削除 */
+.well {
+  box-shadow: none !important;
+}
+
+/* flashに定義されているデフォルトのalertが2つある。*/
+.alert-notice {
+  border: 1px solid #aaa !important;
+}
+.alert-alert {
+  border: 1px solid red !important;
+}
+
+/*
+固定・可変の2カラム
+https://qiita.com/komakomako/items/2046a2a1aa4c5397425f
+*/
+.fixed-flexible {
+  display: table;
+  width: 100%;
+}
+.flex-flexible {
+  display: table;
+  width: 100%;
+}
+.flexible-fixed {
+  display: table;
+  width: 100%;
+}
+.fixed-flexible-fixed {
+  display: table;
+  width: 100%;
+}
+.flexible-fixed-flexible {
+  display: table;
+  width: 100%;
+}
+.fixed, .flexible {
+  display: table-cell;
+  vertical-align: top;
+}
+
+/* TODO: 使い方を復習してコメントに記載 */
+.flex-x {
+  display: inline-table;
+  vertical-align: top;
+}
+
+/* リンクをdiv全体に広げる div-a-link
+http://junk-blog.com/div_a_link/
+*/
+.link-box{
+  position:relative;
+  z-index: 1;
+}
+.link-box a.for-link-box{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  text-indent:-999px;
+}
+.link-box a.for-link-box:hover{
+  filter:alpha(opacity=10);
+  -moz-opacity: 0.1;
+  opacity: 0.1;
+}
+.link-box a.for-link-box:hover ~ div a {
+  color: rgb(255,150,0);
+  text-decoration-line: underline;
+}
+/*画像の内側にborderを引く
+https://stackoverflow.com/questions/15704789
+*/
+.link-box a.for-link-box:hover ~ div img {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  outline: solid 1px rgb(255,150,0);
+  outline-offset: -1px;
+}
+
+.m-0 {
+  margin: 0 !important;
+}
+
+.mt-0 {
+  margin-top: 0 !important;
+}
+
+.mr-0 {
+  margin-right: 0 !important;
+}
+
+.mb-0 {
+  margin-bottom: 0 !important;
+}
+
+.ml-0 {
+  margin-left: 0 !important;
+}
+
+.mx-0 {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+
+.my-0 {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.m-1 {
+  margin: 0.2rem !important;
+}
+
+.mt-1 {
+  margin-top: 0.2rem !important;
+}
+
+.mr-1 {
+  margin-right: 0.2rem !important;
+}
+
+.mb-1 {
+  margin-bottom: 0.2rem !important;
+}
+
+.ml-1 {
+  margin-left: 0.2rem !important;
+}
+
+.mx-1 {
+  margin-right: 0.2rem !important;
+  margin-left: 0.2rem !important;
+}
+
+.my-1 {
+  margin-top: 0.2rem !important;
+  margin-bottom: 0.2rem !important;
+}
+
+.m-2 {
+  margin: 0.8rem !important;
+}
+
+.mt-2 {
+  margin-top: 0.8rem !important;
+}
+
+.mr-2 {
+  margin-right: 0.8rem !important;
+}
+
+.mb-2 {
+  margin-bottom: 0.8rem !important;
+}
+
+.ml-2 {
+  margin-left: 0.8rem !important;
+}
+
+.mx-2 {
+  margin-right: 0.8rem !important;
+  margin-left: 0.8rem !important;
+}
+
+.my-2 {
+  margin-top: 0.8rem !important;
+  margin-bottom: 0.8rem !important;
+}
+
+.m-3 {
+  margin: 1.8rem !important;
+}
+
+.mt-3 {
+  margin-top: 1.8rem !important;
+}
+
+.mr-3 {
+  margin-right: 1.8rem !important;
+}
+
+.mb-3 {
+  margin-bottom: 1.8rem !important;
+}
+
+.ml-3 {
+  margin-left: 1.8rem !important;
+}
+
+.mx-3 {
+  margin-right: 1.8rem !important;
+  margin-left: 1.8rem !important;
+}
+
+.my-3 {
+  margin-top: 1.8rem !important;
+  margin-bottom: 1.8rem !important;
+}
+
+.m-4 {
+  margin: 3.2rem !important;
+}
+
+.mt-4 {
+  margin-top: 3.2rem !important;
+}
+
+.mr-4 {
+  margin-right: 3.2rem !important;
+}
+
+.mb-4 {
+  margin-bottom: 3.2rem !important;
+}
+
+.ml-4 {
+  margin-left: 3.2rem !important;
+}
+
+.mx-4 {
+  margin-right: 3.2rem !important;
+  margin-left: 3.2rem !important;
+}
+
+.my-4 {
+  margin-top: 3.2rem !important;
+  margin-bottom: 3.2rem !important;
+}
+
+.m-5 {
+  margin: 5rem !important;
+}
+
+.mt-5 {
+  margin-top: 5rem !important;
+}
+
+.mr-5 {
+  margin-right: 5rem !important;
+}
+
+.mb-5 {
+  margin-bottom: 5rem !important;
+}
+
+.ml-5 {
+  margin-left: 5rem !important;
+}
+
+.mx-5 {
+  margin-right: 5rem !important;
+  margin-left: 5rem !important;
+}
+
+.my-5 {
+  margin-top: 5rem !important;
+  margin-bottom: 5rem !important;
+}
+
+.p-0 {
+  padding: 0 !important;
+}
+
+.pt-0 {
+  padding-top: 0 !important;
+}
+
+.pr-0 {
+  padding-right: 0 !important;
+}
+
+.pb-0 {
+  padding-bottom: 0 !important;
+}
+
+.pl-0 {
+  padding-left: 0 !important;
+}
+
+.px-0 {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+
+.py-0 {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.p-1 {
+  padding: 0.125rem !important;
+}
+
+.pt-1 {
+  padding-top: 0.125rem !important;
+}
+
+.pr-1 {
+  padding-right: 0.125rem !important;
+}
+
+.pb-1 {
+  padding-bottom: 0.125rem !important;
+}
+
+.pl-1 {
+  padding-left: 0.125rem !important;
+}
+
+.px-1 {
+  padding-right: 0.125rem !important;
+  padding-left: 0.125rem !important;
+}
+
+.py-1 {
+  padding-top: 0.125rem !important;
+  padding-bottom: 0.125rem !important;
+}
+
+.p-2 {
+  padding: 0.5rem !important;
+}
+
+.pt-2 {
+  padding-top: 0.5rem !important;
+}
+
+.pr-2 {
+  padding-right: 0.5rem !important;
+}
+
+.pb-2 {
+  padding-bottom: 0.5rem !important;
+}
+
+.pl-2 {
+  padding-left: 0.5rem !important;
+}
+
+.px-2 {
+  padding-right: 0.5rem !important;
+  padding-left: 0.5rem !important;
+}
+
+.py-2 {
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+}
+
+.p-3 {
+  padding: 1.125rem !important;
+}
+
+.pt-3 {
+  padding-top: 1.125rem !important;
+}
+
+.pr-3 {
+  padding-right: 1.125rem !important;
+}
+
+.pb-3 {
+  padding-bottom: 1.125rem !important;
+}
+
+.pl-3 {
+  padding-left: 1.125rem !important;
+}
+
+.px-3 {
+  padding-right: 1.125rem !important;
+  padding-left: 1.125rem !important;
+}
+
+.py-3 {
+  padding-top: 1.125rem !important;
+  padding-bottom: 1.125rem !important;
+}
+
+.p-4 {
+  padding: 2.0rem !important;
+}
+
+.pt-4 {
+  padding-top: 2.0rem !important;
+}
+
+.pr-4 {
+  padding-right: 2.0rem !important;
+}
+
+.pb-4 {
+  padding-bottom: 2.0rem !important;
+}
+
+.pl-4 {
+  padding-left: 2.0rem !important;
+}
+
+.px-4 {
+  padding-right: 2.0rem !important;
+  padding-left: 2.0rem !important;
+}
+
+.py-4 {
+  padding-top: 2.0rem !important;
+  padding-bottom: 2.0rem !important;
+}
+
+.p-5 {
+  padding: 3.125rem !important;
+}
+
+.pt-5 {
+  padding-top: 3.125rem !important;
+}
+
+.pr-5 {
+  padding-right: 3.125rem !important;
+}
+
+.pb-5 {
+  padding-bottom: 3.125rem !important;
+}
+
+.pl-5 {
+  padding-left: 3.125rem !important;
+}
+
+.px-5 {
+  padding-right: 3.125rem !important;
+  padding-left: 3.125rem !important;
+}
+
+.py-5 {
+  padding-top: 3.125rem !important;
+  padding-bottom: 3.125rem !important;
+}
+
+/* フォントサイズを「fs」、フォントカラーを「fc」、フォントウェイトを「fw」で表記
+(参考) 食べログ
+*/
+h1 {
+  font-size: 34px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+h2 {
+  font-size: 28px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+h3 {
+  font-size: 22px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+h4 {
+  font-size: 26px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+h5 {
+  font-size: 12px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.fs-1 {
+  font-size: 12px; /* h5 と同じ */
+}
+.fs-2 {
+  font-size: 16px; /* h4 と同じ */
+}
+.fs-3 {
+  font-size: 22px; /* h3 と同じ */
+}
+.fs-4 {
+  font-size: 28px; /* h2 と同じ */
+}
+.fs-5 {
+  font-size: 34px; /* h1 と同じ */
+}
+
+.fc-1 {
+  color: #333;
+}
+.fc-2 {
+  color: #666;
+}
+.fc-3 {
+  color: #999;
+}
+.fc-4 {
+  color: #ccc;
+}
+.fc-5 {
+  color: #fff;
+}
+
+a.fc-1:link    { color: #333 !important; }
+a.fc-1:visited { color: #333 !important; }
+a.fc-1:hover   { color: #333 !important; }
+a.fc-1:active  { color: #333 !important; }
+a.fc-2:link    { color: #666 !important; }
+a.fc-2:visited { color: #666 !important; }
+a.fc-2:hover   { color: #666 !important; }
+a.fc-2:active  { color: #666 !important; }
+a.fc-3:link    { color: #999 !important; }
+a.fc-3:visited { color: #999 !important; }
+a.fc-3:hover   { color: #999 !important; }
+a.fc-3:active  { color: #999 !important; }
+a.fc-4:link    { color: #ccc !important; }
+a.fc-4:visited { color: #ccc !important; }
+a.fc-4:hover   { color: #ccc !important; }
+a.fc-4:active  { color: #ccc !important; }
+a.fc-5:link    { color: #fff !important; }
+a.fc-5:visited { color: #fff !important; }
+a.fc-5:hover   { color: #fff !important; }
+a.fc-5:active  { color: #fff !important; }
+
+/* text-align */
+.center {
+  text-align: center !important;
+}
+.right {
+  text-align: right !important; 
+}
+.left {
+  text-align: left !important;  
+}
+
+/* vartical-align */
+.middle {
+  vertical-align: middle !important;
+}
+.bottom {
+  vertical-align: bottom !important; 
+}
+.top {
+  vertical-align: top !important;  
+}
+
+/* major widths */
+.width-100 {
+  width: 100% !important;
+}
+.width-50 {
+  width: 50% !important;
+}
+
+/* major background */
+.bg-gray {
+  background: #FAF8F5;
+}
+.bg-brown {
+  background: #797154;
+}
+.bg-black {
+  background: #333;
+}
+
+/* border */
+.border-r {
+  border-right: 1px solid #ECF0F1;
+}
+.border-l {
+  border-left: 1px solid #ECF0F1;
+}
+.border-t {
+  border-top: 1px solid #ECF0F1;
+}
+.border-b {
+  border-bottom: 1px solid #ECF0F1;
+}
+
+/* corner radius */
+.smooth {
+  border-radius: 5px;
+}
+
+/* SNS button */
+button.btn-twitter {
+  background: #55acee;
+  color: white;
+}
+button.btn-twitter:hover {
+  background: #55acee;
+  color: white;
+  text-decoration: underline;
+}
+
+button.btn-facebook {
+  background: #315096;
+  color: white;
+}
+button.btn-facebook:hover {
+  background: #315096;
+  color: white;
+  text-decoration: underline;
+}
+
+button.btn-instagram {
+  background: #537FA2;
+  color: white;
+}
+button.btn-instagram:hover {
+  background: #537FA2;
+  color: white;
+  text-decoration: underline;
+}
+
+button.btn-google {
+  background: #dd4b39;
+  color: white;
+}
+button.btn-google:hover {
+  background: #dd4b39;
+  color: white;
+  text-decoration: underline;
+}
+
+button.btn-line {
+  background: #00c300;
+  color: white;
+}
+button.btn-line:hover {
+  background: #00c300;
+  color: white;
+  text-decoration: underline;
+}
+
+
+
+
+
+
+
+

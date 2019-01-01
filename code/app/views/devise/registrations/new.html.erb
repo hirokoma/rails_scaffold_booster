@@ -1,0 +1,115 @@
+<% content_for :title do %>
+  新規登録
+<% end %>
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-xs-12 col-md-8 col-md-offset-2 col-sm-9 col-sm-offset-1 center">
+      <% if session['devise.user_attributes'] %>      
+        <h1 class="mt-5"><%= session['devise.user_attributes']['username'] %>さん、@@@へようこそ!</h1>
+        <div class="my-2 fs-3">以下の情報を入力して登録を完了してください</div>
+      <% else %>
+        <h1 class="mt-5">@@@へようこそ！</h1>
+        <div class="my-2 fs-3">新規登録（無料）して@@@を始めよう！</div>
+      <% end %>
+      <hr>
+    </div>
+
+    <% if session['devise.user_attributes'] %>
+      <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <div class="form-inputs">
+            <%= f.input :nickname,
+                        required: true,
+                        autofocus: true  %>
+            <%= f.input :email,
+                        required: true,
+                        input_html: { autocomplete: 'email' } %>
+            <%= f.input :password,
+                        required: true,
+                        hint: ("#{@minimum_password_length} 文字以上" if @minimum_password_length),
+                        input_html: { autocomplete: 'new-password' } %>
+            <%= f.input :password_confirmation,
+                        required: true,
+                        input_html: { autocomplete: 'new-password' } %>
+          </div>
+          <div class="fs-1 mb-1">
+            <%= link_to '利用規約', root_path %><span class="fc-2">に同意のうえ、「利用規約に同意して登録」ボタンを押してください。</span></div>
+          <div class="form-actions">
+            <%= f.button :submit, '利用規約に同意して登録', class: 'btn btn-success width-100' %>
+          </div>
+        <% end %>
+        <hr>
+        <%= link_to 'ログインはこちらから', new_session_path(resource_name) %><br />
+        <%= link_to '登録確認メールを受け取れない場合', new_confirmation_path(resource_name) %><br />
+      </div>
+    <% else %>
+      <div class="col-md-4 col-md-offset-2 col-sm-5 col-sm-offset-1">
+        <%- if devise_mapping.omniauthable? %>
+            <div class="mb-1">
+              <%= link_to user_twitter_omniauth_authorize_path do %>
+                <button class="btn btn-twitter width-100">
+                  <i class="fa fa-fw fa-twitter"></i>&nbsp;Twitterアカウントで登録
+                </button>
+              <% end %>
+            </div>
+            <div class="mb-1">
+              <%= link_to user_twitter_omniauth_authorize_path do %>
+                <button class="btn btn-facebook width-100">
+                  <i class="fa fa-fw fa-facebook"></i>&nbsp;Facebookアカウントで登録
+                </button>
+              <% end %>
+            </div>
+            <div class="mb-1">
+              <%= link_to user_twitter_omniauth_authorize_path do %>
+                <button class="btn btn-line width-100">
+                  <i class="fa fa-fw fa-mobile"></i>&nbsp;LINEアカウントで登録</button>
+              <% end %>
+            </div>
+            <div class="mb-1">
+              <%= link_to user_twitter_omniauth_authorize_path do %>
+                <button class="btn btn-instagram width-100">
+                  <i class="fa fa-fw fa-instagram"></i>&nbsp;Instagramアカウントで登録</button>
+              <% end %>
+            </div>
+            <div class="mb-1">
+              <%= link_to user_twitter_omniauth_authorize_path do %>
+                <button class="btn btn-google width-100">
+                  <i class="fa fa-fw fa-google"></i>&nbsp;Googleアカウントで登録</button>
+              <% end %>
+            </div>
+            <div class="fs-2 mt-2 fc-2">@@@が許可なくSNSに投稿することはありません。</div>
+        <% end -%>
+      </div>
+      <div class="col-md-4 col-sm-5 border-l">
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <div class="form-inputs">
+            <%= f.input :nickname,
+                        required: true,
+                        autofocus: true  %>
+            <%= f.input :email,
+                        required: true,
+                        input_html: { autocomplete: 'email' } %>
+            <%= f.input :password,
+                        required: true,
+                        hint: ("#{@minimum_password_length} 文字以上" if @minimum_password_length),
+                        input_html: { autocomplete: 'new-password' } %>
+            <%= f.input :password_confirmation,
+                        required: true,
+                        input_html: { autocomplete: 'new-password' } %>
+          </div>
+          <div class="fs-1 mb-1">
+            <%= link_to '利用規約', root_path %><span class="fc-2">に同意のうえ、「利用規約に同意して登録」ボタンを押してください。</span></div>
+          <div class="form-actions">
+            <%= f.button :submit, '利用規約に同意して登録', class: 'btn btn-success width-100' %>
+          </div>
+        <% end %>
+        <hr>
+        <%= link_to 'ログインはこちらから', new_session_path(resource_name) %><br />
+        <%= link_to '登録確認メールを受け取れない場合', new_confirmation_path(resource_name) %><br />
+      </div>
+    <% end %>
+
+  </div><!-- end of .row -->
+</div><!-- end of .container -->

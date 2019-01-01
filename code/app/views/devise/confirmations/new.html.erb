@@ -1,0 +1,30 @@
+<% content_for :title do %>
+  登録確認メールの再送信
+<% end %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset-2 col-sm-9 col-sm-offset-1">
+
+      <h1 class="mt-5 mb-3">登録確認メールを再送信する</h1>
+
+      <%= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+        <%= f.error_notification %>
+        <%= f.full_error :confirmation_token %>
+
+        <div class="form-inputs">
+          <%= f.input :email,
+                      required: true,
+                      autofocus: true,
+                      value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email),
+                      input_html: { autocomplete: 'email' } %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, '送信', class: 'btn btn-success' %>
+        </div>
+      <% end %>
+
+    </div>
+  </div><!-- end of .row -->
+</div><!-- end of .container -->
