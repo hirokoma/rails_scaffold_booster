@@ -11,18 +11,24 @@ FROM_ARRRESS=your_own_email@example.com # Used as the sender email
 
 
 
-
-
 # Do not change the following setting.
 SOURCE_PATH=https://raw.githubusercontent.com/hirokoma/rails_scaffold_booster/master/code
 
+## Create postgresql database
+psql postgres -f <( echo "CREATE DATABASE ${APP_NAME_LOWER_CASE}_development; CREATE USER ${APP_NAME_LOWER_CASE}; ALTER USER ${APP_NAME_LOWER_CASE} CREATEDB; ALTER USER ${APP_NAME_LOWER_CASE} SUPERUSER; ALTER DATABASE ${APP_NAME_LOWER_CASE}_development OWNER TO ${APP_NAME_LOWER_CASE};" )
+
+## Create new rails app
 mkdir -p $PROJECT_DIRECTORY
 cd $PROJECT_DIRECTORY
 rails new $APP_NAME_LOWER_CASE -d postgresql
 cd $APP_NAME_LOWER_CASE
+
+## Install gems
 wget $SOURCE_PATH/Gemfile -O Gemfile
 bundle install --path vendor/bundle
 gem install execjs
+
+## Install bootswatch
 rails g bootswatch:install flatly
 
 mkdir -p app/assets/stylesheets/flatly
@@ -37,6 +43,7 @@ wget $SOURCE_PATH/public/dummy_logo.png -O public/dummy_logo.png
 wget $SOURCE_PATH/app/views/layouts/application.html.erb -O app/views/layouts/application.html.erb
 wget $SOURCE_PATH/config/environments/development.rb -O config/environments/development.rb
 
+## Install devise
 rails g devise:install
 rails g devise:views
 rails g devise User
@@ -44,12 +51,10 @@ rm -f db/migrate/*_devise_create_users.rb
 
 wget $SOURCE_PATH/app/models/user.rb -O app/models/user.rb
 wget $SOURCE_PATH/db/migrate/20171231000000_devise_create_users.rb -O db/migrate/20171231000000_devise_create_users.rb
-
 rails db:migrate
 
 wget $SOURCE_PATH/config/initializers/devise.rb -O config/initializers/devise.rb
 cat config/initializers/devise.rb | perl -pe "s/@@@/${APP_NAME_UPPER_CASE}/g" >_&&mv _ config/initializers/devise.rb
-
 rails g controller omniauth_callbacks
 wget $SOURCE_PATH/app/controllers/omniauth_callbacks_controller.rb app/controllers/omniauth_callbacks_controller.rb
 
@@ -61,14 +66,14 @@ echo "export RAILS_APP_${APP_NAME_UPPER_CASE}_EMAIL_USER=${GMAIL_USER}" >> ~/.ba
 echo "export RAILS_APP_${APP_NAME_UPPER_CASE}_EMAIL_PASSWORD=${GMAIL_PASSWORD}" >> ~/.bash_profile
 echo "export RAILS_APP_${APP_NAME_UPPER_CASE}_EMAIL_FROM_ARRRESS=\"${APP_NAME_TO_DISPLAY}\"\ \<${FROM_ARRRESS}\>" >> ~/.bash_profile
 echo "export RAILS_APP_${APP_NAME_UPPER_CASE}_SMTP_SERVER=smtp.gmail.com" >> ~/.bash_profile
-
 source ~/.bash_profile
 
+## Install simple form
 rails generate simple_form:install --bootstrap
-
 wget $SOURCE_PATH/config/application.rb -O config/application.rb
 wget $SOURCE_PATH/config/locales/devise.ja.yml -O config/locales/devise.ja.yml
 
+## Style devise views
 wget $SOURCE_PATH/app/views/devise/confirmations/new.html.erb -O app/views/devise/confirmations/new.html.erb
 wget $SOURCE_PATH/app/views/devise/mailer/confirmation_instructions.html.erb -O app/views/devise/mailer/confirmation_instructions.html.erb
 wget $SOURCE_PATH/app/views/devise/mailer/email_changed.html.erb -O app/views/devise/mailer/email_changed.html.erb
@@ -83,6 +88,7 @@ wget $SOURCE_PATH/app/views/devise/sessions/new.html.erb -O app/views/devise/ses
 wget $SOURCE_PATH/app/views/devise/shared/_links.html.erb -O app/views/devise/shared/_links.html.erb
 wget $SOURCE_PATH/app/views/devise/unlocks/new.html.erb -O app/views/devise/unlocks/new.html.erb
 
+## Create user's page
 mkdir -p app/views/utils
 wget $SOURCE_PATH/app/views/utils/_debug.html.erb -O app/views/utils/_debug.html.erb
 
