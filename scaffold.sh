@@ -65,7 +65,7 @@ rails db:migrate
 wget $SOURCE_PATH/config/initializers/devise.rb -O config/initializers/devise.rb
 cat config/initializers/devise.rb | perl -pe "s/@@@/${APP_NAME_UPPER_CASE}/g" >_&&mv _ config/initializers/devise.rb
 rails g controller omniauth_callbacks
-wget $SOURCE_PATH/app/controllers/omniauth_callbacks_controller.rb app/controllers/omniauth_callbacks_controller.rb
+wget $SOURCE_PATH/app/controllers/omniauth_callbacks_controller.rb -O app/controllers/omniauth_callbacks_controller.rb
 
 echo "" >> ~/.bash_profile
 echo "# My Rails APP -- ${APP_NAME_LOWER_CASE}" >> ~/.bash_profile
