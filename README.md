@@ -85,6 +85,14 @@ ps aux | grep spring # => you can get PID
 ps -9 XXXX # <= XXXX is PID
 ```
 
+### 5. Open your app.
+
+Run the following command.
+
+```
+rails s -b 172.20.7.61
+```
+
 ## Demonstration
 
 now writing...
