@@ -51,6 +51,7 @@ cat app/views/layouts/application.html.erb | perl -pe "s/@@@/${APP_NAME_TO_DISPL
 rails generate simple_form:install --bootstrap
 wget $SOURCE_PATH/config/application.rb -O config/application.rb
 wget $SOURCE_PATH/config/locales/devise.ja.yml -O config/locales/devise.ja.yml
+wget $SOURCE_PATH/config/locales/ja.yml -O config/locales/ja.yml
 
 ## Install devise
 rails g devise:install
