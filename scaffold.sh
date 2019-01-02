@@ -45,7 +45,7 @@ wget $SOURCE_PATH/app/views/pages/index.html.erb -O app/views/pages/index.html
 wget $SOURCE_PATH/public/dummy_logo.png -O public/dummy_logo.png
 wget $SOURCE_PATH/app/views/layouts/application.html.erb -O app/views/layouts/application.html.erb
 wget $SOURCE_PATH/config/environments/development.rb -O config/environments/development.rb
-cat app/views/layouts/application.html.erb | grep "s/@@@/${APP_NAME_TO_DISPLAY}/g" >_&&mv _ app/views/layouts/application.html.erb
+cat app/views/layouts/application.html.erb | perl -pe "s/@@@/${APP_NAME_TO_DISPLAY}/g" >_&&mv _ app/views/layouts/application.html.erb
 
 ## Install simple form
 rails generate simple_form:install --bootstrap
