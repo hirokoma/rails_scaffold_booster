@@ -75,7 +75,7 @@ echo "export RAILS_APP_${APP_NAME_UPPER_CASE}_TWITTER_ID=${TWITTER_ID}" >> ~/.ba
 echo "export RAILS_APP_${APP_NAME_UPPER_CASE}_TWITTER_SECRET=${TWITTER_SECRET}" >> ~/.bash_profile
 echo "export RAILS_APP_${APP_NAME_UPPER_CASE}_EMAIL_USER=${GMAIL_USER}" >> ~/.bash_profile
 echo "export RAILS_APP_${APP_NAME_UPPER_CASE}_EMAIL_PASSWORD=${GMAIL_PASSWORD}" >> ~/.bash_profile
-echo "export RAILS_APP_${APP_NAME_UPPER_CASE}_EMAIL_FROM_ARRRESS=\"${APP_NAME_TO_DISPLAY}\"\ \<${FROM_ARRRESS}\>" >> ~/.bash_profile
+echo "export RAILS_APP_${APP_NAME_UPPER_CASE}_EMAIL_FROM_ADDRESS=\"${APP_NAME_TO_DISPLAY}\"\ \<${FROM_ARRRESS}\>" >> ~/.bash_profile
 echo "export RAILS_APP_${APP_NAME_UPPER_CASE}_SMTP_SERVER=smtp.gmail.com" >> ~/.bash_profile
 source ~/.bash_profile
 
