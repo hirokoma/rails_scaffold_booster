@@ -78,6 +78,13 @@ Run the following command.
 ./scaffold.sh
 ```
 
+If the `rails g` command hangs, you should end the spring process like below.
+
+```
+ps aux | grep spring # => you can get PID
+ps -9 XXXX # <= XXXX is PID
+```
+
 ## Demonstration
 
 now writing...
