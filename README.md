@@ -90,7 +90,7 @@ ps -9 XXXX # <= XXXX is PID
 Run the following command.
 
 ```
-rails s -b 172.20.7.61
+rails s -b 127.0.0.1
 ```
 
 ## Demonstration
