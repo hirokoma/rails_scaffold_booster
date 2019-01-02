@@ -46,6 +46,7 @@ wget $SOURCE_PATH/public/dummy_logo.png -O public/dummy_logo.png
 wget $SOURCE_PATH/app/views/layouts/application.html.erb -O app/views/layouts/application.html.erb
 wget $SOURCE_PATH/config/environments/development.rb -O config/environments/development.rb
 cat app/views/layouts/application.html.erb | perl -pe "s/@@@/${APP_NAME_TO_DISPLAY}/g" >_&&mv _ app/views/layouts/application.html.erb
+cat config/environments/development.rb | perl -pe "s/@@@/${APP_NAME_UPPER_CASE}/g" >_&&mv _ config/environments/development.rb
 
 ## Install simple form
 rails generate simple_form:install --bootstrap
