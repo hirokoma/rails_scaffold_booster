@@ -97,3 +97,5 @@ wget $SOURCE_PATH/app/controllers/application_controller.rb -O app/controllers/a
 wget $SOURCE_PATH/db/migrate/20171231000001_create_images.rb -O db/migrate/20171231000001_create_images.rb
 wget $SOURCE_PATH/app/models/image.rb -O app/models/image.rb
 wget $SOURCE_PATH/config/routes.rb -O config/routes.rb
+
+rails db:migrate
