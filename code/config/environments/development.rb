@@ -64,10 +64,10 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: ENV['RAILS_APP_KARAMI_SMTP_SERVER'],
+    address: ENV['RAILS_APP_@@@_SMTP_SERVER'],
     port: 587,
-    user_name: ENV['RAILS_APP_KARAMI_EMAIL_USER'],
-    password: ENV['RAILS_APP_KARAMI_EMAIL_PASSWORD'],
+    user_name: ENV['RAILS_APP_@@@_EMAIL_USER'],
+    password: ENV['RAILS_APP_@@@_EMAIL_PASSWORD'],
     authentication: :plain,
     enable_starttls_auto: true
   }
