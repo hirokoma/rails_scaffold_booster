@@ -10,7 +10,6 @@ GMAIL_PASSWORD=XXXXXXXXXXXXXXXXX # Password you got in step 2.
 FROM_ARRRESS=your_own_email@example.com # Used as the sender email
 
 
-
 # Do not change the following setting.
 SOURCE_PATH=https://raw.githubusercontent.com/hirokoma/rails_scaffold_booster/master/code
 
@@ -36,17 +35,21 @@ mkdir -p app/views/pages
 wget $SOURCE_PATH/app/assets/stylesheets/flatly/variables.less -O app/assets/stylesheets/flatly/variables.less
 wget $SOURCE_PATH/app/assets/stylesheets/flatly/bootswatch.css.less -O app/assets/stylesheets/flatly/bootswatch.css.less
 wget $SOURCE_PATH/app/assets/stylesheets/application.css -O app/assets/stylesheets/application.css
-wget $SOURCE_PATH/config/routes.rb -O config/routes.rb
 wget $SOURCE_PATH/app/controllers/pages_controller.rb -O app/controllers/pages_controller.rb
 wget $SOURCE_PATH/app/views/pages/index.html.erb -O app/views/pages/index.html
 wget $SOURCE_PATH/public/dummy_logo.png -O public/dummy_logo.png
 wget $SOURCE_PATH/app/views/layouts/application.html.erb -O app/views/layouts/application.html.erb
 wget $SOURCE_PATH/config/environments/development.rb -O config/environments/development.rb
 
+## Install simple form
+rails generate simple_form:install --bootstrap
+wget $SOURCE_PATH/config/application.rb -O config/application.rb
+wget $SOURCE_PATH/config/locales/devise.ja.yml -O config/locales/devise.ja.yml
+
 ## Install devise
 rails g devise:install
+rails g devise user
 rails g devise:views
-rails g devise User
 rm -f db/migrate/*_devise_create_users.rb
 
 wget $SOURCE_PATH/app/models/user.rb -O app/models/user.rb
@@ -67,11 +70,6 @@ echo "export RAILS_APP_${APP_NAME_UPPER_CASE}_EMAIL_PASSWORD=${GMAIL_PASSWORD}" 
 echo "export RAILS_APP_${APP_NAME_UPPER_CASE}_EMAIL_FROM_ARRRESS=\"${APP_NAME_TO_DISPLAY}\"\ \<${FROM_ARRRESS}\>" >> ~/.bash_profile
 echo "export RAILS_APP_${APP_NAME_UPPER_CASE}_SMTP_SERVER=smtp.gmail.com" >> ~/.bash_profile
 source ~/.bash_profile
-
-## Install simple form
-rails generate simple_form:install --bootstrap
-wget $SOURCE_PATH/config/application.rb -O config/application.rb
-wget $SOURCE_PATH/config/locales/devise.ja.yml -O config/locales/devise.ja.yml
 
 ## Style devise views
 wget $SOURCE_PATH/app/views/devise/confirmations/new.html.erb -O app/views/devise/confirmations/new.html.erb
@@ -98,3 +96,4 @@ wget $SOURCE_PATH/app/controllers/users_controller.rb -O app/controllers/users_c
 wget $SOURCE_PATH/app/controllers/application_controller.rb -O app/controllers/application_controller.rb
 wget $SOURCE_PATH/db/migrate/20171231000001_create_images.rb -O db/migrate/20171231000001_create_images.rb
 wget $SOURCE_PATH/app/models/image.rb -O app/models/image.rb
+wget $SOURCE_PATH/config/routes.rb -O config/routes.rb
