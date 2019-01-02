@@ -39,6 +39,7 @@ mkdir -p app/views/pages
 wget $SOURCE_PATH/app/assets/stylesheets/flatly/variables.less -O app/assets/stylesheets/flatly/variables.less
 wget $SOURCE_PATH/app/assets/stylesheets/flatly/bootswatch.css.less -O app/assets/stylesheets/flatly/bootswatch.css.less
 wget $SOURCE_PATH/app/assets/stylesheets/application.css -O app/assets/stylesheets/application.css
+wget $SOURCE_PATH/app/assets/javascripts/application.js -O app/assets/javascripts/application.js
 wget $SOURCE_PATH/app/controllers/pages_controller.rb -O app/controllers/pages_controller.rb
 wget $SOURCE_PATH/app/views/pages/index.html.erb -O app/views/pages/index.html
 wget $SOURCE_PATH/public/dummy_logo.png -O public/dummy_logo.png
