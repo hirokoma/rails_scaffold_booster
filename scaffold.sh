@@ -10,6 +10,10 @@ GMAIL_PASSWORD=XXXXXXXXXXXXXXXXX # Password you got in step 2.
 FROM_ARRRESS=your_own_email@example.com # Used as the sender email
 
 
+
+
+
+
 # Do not change the following setting.
 SOURCE_PATH=https://raw.githubusercontent.com/hirokoma/rails_scaffold_booster/master/code
 
@@ -97,3 +101,5 @@ wget $SOURCE_PATH/app/controllers/application_controller.rb -O app/controllers/a
 wget $SOURCE_PATH/db/migrate/20171231000001_create_images.rb -O db/migrate/20171231000001_create_images.rb
 wget $SOURCE_PATH/app/models/image.rb -O app/models/image.rb
 wget $SOURCE_PATH/config/routes.rb -O config/routes.rb
+
+rails db:migrate
