@@ -52,6 +52,28 @@ Open [Google Account](https://myaccount.google.com/security) and enable 2-step v
 Then, issue an app password.
 
 
+### 2+. Set up AWS S3 bucket.
+
+In order to be able to upload the user image directly to S3, you need to set up S3 bucket.
+Open [S3 console](https://s3.console.aws.amazon.com/s3/home) and make a new bucket to satisfy the following requirements.
+
+- The bucket name can be anything. It is desirable to make it the same as the project name or domain name.
+- Set all public access settings to False. 
+- Set CORS policy like below.
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+<CORSRule>
+    <AllowedOrigin>*</AllowedOrigin>
+    <AllowedMethod>GET</AllowedMethod>
+    <AllowedMethod>POST</AllowedMethod>
+    <MaxAgeSeconds>3000</MaxAgeSeconds>
+    <AllowedHeader>*</AllowedHeader>
+</CORSRule>
+</CORSConfiguration>
+```
+
 ### 3. Configure on shell script.
 
 Open `scaffold.sh` and rewrite the first paragraph.
