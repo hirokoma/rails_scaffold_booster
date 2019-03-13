@@ -23,7 +23,7 @@ gem 'font-awesome-rails' #綺麗なアイコンが描ける
 gem 'twitter-bootswatch-rails' #bootstrapのテーマ
 gem 'twitter-bootswatch-rails-helpers' #bootstrapのテーマ
 gem 'less-rails' #bootstrapをコンパイルするのに必要
-gem 'sass-rails', '~> 5.0' #bootstrapをコンパイルするのに必要
+gem 'sassc-rails' #bootstrapをコンパイルするのに必要
 gem 'jquery-rails' #jquery　これがないと始まらない。　ほぼ必須のgemだ
 gem 'photoswipe-rails' #画像をライトボックス表示できる
 gem 'cropper-rails' #画像をアップロードするときに好きな矩形でトリミングできる
@@ -37,6 +37,7 @@ gem 'counter_culture' #has_manyの関係にあるオブジェクトの数を数�
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
+
 gem 'therubyracer', platforms: :ruby
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
